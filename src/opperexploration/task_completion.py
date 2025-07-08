@@ -5,8 +5,6 @@ import os
 from pydantic import BaseModel, Field
 from typing import List
 
-opper = Opper(http_bearer=os.getenv("OPPER_API_KEY", ""))
-
 
 # Input schema with field descriptions
 class KBQueryInput(BaseModel):
@@ -20,21 +18,28 @@ class KBQueryOutput(BaseModel):
     answer: str = Field(description="Concise answer to the question")
 
 
-# Task definition and completion run
-response = opper.call(
-    name="mini_kb_query",
-    instructions="Given the list of bullet-point facts, answer the question.",
-    input_schema=KBQueryInput,
-    output_schema=KBQueryOutput,
-    input={
-        "facts": [
-            "Jupiter is the largest planet in the Solar System.",
-            "The Great Red Spot is a giant storm on Jupiter.",
-            "Saturn possesses the most extensive ring system in the Solar System.",
-        ],
-        "question": "Which planet hosts the Great Red Spot?",
-    },
-)
+def main():
+    opper = Opper(http_bearer=os.getenv("OPPER_API_KEY", ""))
 
-print(response.json_payload)
-# {'thoughts': "From the facts provided, I know that Jupiter is the largest planet in the Solar System and that the Great Red Spot is a giant storm. This clearly links the Great Red Spot to Jupiter. Facts about Saturn's ring system are unrelated to the question. Therefore, the planet hosting the Great Red Spot is Jupiter.", 'answer': 'Jupiter'}
+    # Task definition and completion run
+    response = opper.call(
+        name="mini_kb_query",
+        instructions="Given the list of bullet-point facts, answer the question.",
+        input_schema=KBQueryInput,
+        output_schema=KBQueryOutput,
+        input={
+            "facts": [
+                "Jupiter is the largest planet in the Solar System.",
+                "The Great Red Spot is a giant storm on Jupiter.",
+                "Saturn possesses the most extensive ring system in the Solar System.",
+            ],
+            "question": "Which planet hosts the Great Red Spot?",
+        },
+    )
+
+    print(response.json_payload)
+    # {'thoughts': "From the facts provided, I know that Jupiter is the largest planet in the Solar System and that the Great Red Spot is a giant storm. This clearly links the Great Red Spot to Jupiter. Facts about Saturn's ring system are unrelated to the question. Therefore, the planet hosting the Great Red Spot is Jupiter.", 'answer': 'Jupiter'}
+
+
+if __name__ == "__main__":
+    main()
