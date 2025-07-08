@@ -12,8 +12,8 @@ This file contains configuration and context for Claude Code to help with projec
 
 ### Development
 ```bash
-# Run main.py (room extraction example)
-source ./venv/bin/activate && source .env && python src/opperexploration/main.py
+# Run getting_started.py (room extraction example)
+source ./venv/bin/activate && source .env && python src/opperexploration/getting_started.py
 
 # Run task_completion.py (knowledge base query example)
 source ./venv/bin/activate && source .env && python src/opperexploration/task_completion.py

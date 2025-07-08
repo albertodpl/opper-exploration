@@ -1,4 +1,4 @@
-"""Main module for Opper AI exploration"""
+"""Getting started example for Opper AI exploration"""
 
 from opperai import Opper
 

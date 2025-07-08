@@ -42,13 +42,13 @@ cp .env.example .env
 
 ### Basic Usage
 
-**Room Information Extraction** (`main.py`)
+**Room Information Extraction** (`getting_started.py`)
 - Demonstrates structured data extraction from unstructured text
 - Shows input/output schema definitions with Pydantic models
 - Example of field descriptions for model prompting
 
 ```bash
-source venv/bin/activate && source .env && python src/opperexploration/main.py
+source venv/bin/activate && source .env && python src/opperexploration/getting_started.py
 ```
 
 **Knowledge Base Query** (`task_completion.py`)
@@ -91,7 +91,7 @@ source venv/bin/activate && ruff format src/
 
 ```
 src/opperexploration/
-├── main.py                          # Room extraction example
+├── getting_started.py               # Room extraction example
 ├── task_completion.py               # Knowledge base query example
 ├── tracing_and_metrics.py          # Tracing and evaluation
 ├── in_context_learning.py          # Example-based learning
