@@ -57,6 +57,7 @@ source ./venv/bin/activate && ruff format src/
 ### Git Commits
 - Do not mention Claude Code or AI assistance in commit messages
 - Keep commit messages professional and focused on the actual changes
+- Always update the README.md file before each commit if needed
 
 # Opper AI specifics
 
