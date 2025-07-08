@@ -12,7 +12,11 @@ This file contains configuration and context for Claude Code to help with projec
 
 ### Development
 ```bash
-# Add your development commands here
+# Run main.py (room extraction example)
+source ./venv/bin/activate && source .env && python src/opperexploration/main.py
+
+# Run task_completion.py (knowledge base query example)
+source ./venv/bin/activate && source .env && python src/opperexploration/task_completion.py
 ```
 
 ### Testing
@@ -27,7 +31,11 @@ This file contains configuration and context for Claude Code to help with projec
 
 ### Linting
 ```bash
-# Add your linting commands here
+# Run ruff linter
+source ./venv/bin/activate && ruff check src/
+
+# Run ruff formatter
+source ./venv/bin/activate && ruff format src/
 ```
 
 ## Project Structure
