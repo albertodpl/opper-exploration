@@ -13,13 +13,13 @@ This file contains configuration and context for Claude Code to help with projec
 ### Development
 ```bash
 # Run getting_started.py (room extraction example)
-source ./venv/bin/activate && source .env && python src/opperexploration/getting_started.py
+source .env && uv run src/opperexploration/getting_started.py
 
 # Run task_completion.py (knowledge base query example)
-source ./venv/bin/activate && source .env && python src/opperexploration/task_completion.py
+source .env && uv run src/opperexploration/task_completion.py
 
 # Run tests_and_evals.py (testing and evaluation example)
-source ./venv/bin/activate && source .env && python src/opperexploration/tests_and_evals.py
+source .env && uv run src/opperexploration/tests_and_evals.py
 ```
 
 ### Testing
@@ -35,10 +35,10 @@ source ./venv/bin/activate && source .env && python src/opperexploration/tests_a
 ### Linting
 ```bash
 # Run ruff linter
-source ./venv/bin/activate && ruff check src/
+uv run ruff check src/
 
 # Run ruff formatter
-source ./venv/bin/activate && ruff format src/
+uv run ruff format src/
 ```
 
 ## Project Structure
@@ -48,9 +48,10 @@ source ./venv/bin/activate && ruff format src/
 ## Notes
 
 ### Python Invocation
-- Local Python: Use `python3` command
-- Within venv: Use `python` command
-- Always activate venv first: `source ./venv/bin/activate`
+- Use `uv run` for all Python commands - it handles virtual environments automatically
+- Dependencies are automatically installed from pyproject.toml
+- No need to manually activate virtual environments
+- After `git pull`, always run `uv sync` to ensure environment matches locked dependencies
 
 ### Environment Variables
 - Copy `.env.example` to `.env` and add your API keys

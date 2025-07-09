@@ -1,7 +1,8 @@
 """Tracing and metrics module for Opper AI exploration"""
 
-from opperai import Opper
 import os
+
+from opperai import Opper
 from pydantic import BaseModel, Field
 
 

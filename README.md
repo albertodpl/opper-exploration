@@ -10,7 +10,8 @@ Opper is a Unified API that makes it easy to build AI code that is model indepen
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.9+
+- [uv](https://github.com/astral-sh/uv) package manager
 - An Opper AI API key (get one at https://platform.opper.ai)
 
 ### Installation
@@ -21,22 +22,34 @@ git clone https://github.com/albertodpl/opper-exploration.git
 cd opper-exploration
 ```
 
-2. Set up virtual environment:
+2. Install uv (if not already installed):
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+# macOS
+brew install uv
+
+# Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows
+# Download from GitHub Releases: https://github.com/astral-sh/uv/releases
 ```
 
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-4. Set up environment variables:
+3. Set up environment variables:
 ```bash
 cp .env.example .env
 # Edit .env and add your OPPER_API_KEY
 ```
+
+Dependencies are automatically managed by uv - no manual installation needed!
+
+### Staying in Sync
+
+After pulling changes from git, always run:
+```bash
+uv sync
+```
+
+This ensures your local environment matches the locked dependencies in `uv.lock`.
 
 ## Examples
 
@@ -48,7 +61,7 @@ cp .env.example .env
 - Example of field descriptions for model prompting
 
 ```bash
-source venv/bin/activate && source .env && python src/opperexploration/getting_started.py
+source .env && uv run src/opperexploration/getting_started.py
 ```
 
 **Knowledge Base Query** (`task_completion.py`)
@@ -57,7 +70,7 @@ source venv/bin/activate && source .env && python src/opperexploration/getting_s
 - Example of structured responses with references
 
 ```bash
-source venv/bin/activate && source .env && python src/opperexploration/task_completion.py
+source .env && uv run src/opperexploration/task_completion.py
 ```
 
 ### Advanced Features
@@ -82,10 +95,10 @@ source venv/bin/activate && source .env && python src/opperexploration/task_comp
 
 ```bash
 # Check code style
-source venv/bin/activate && ruff check src/
+uv run ruff check src/
 
 # Format code
-source venv/bin/activate && ruff format src/
+uv run ruff format src/
 ```
 
 ### Project Structure

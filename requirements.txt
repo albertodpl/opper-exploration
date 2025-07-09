@@ -1,6 +1,0 @@
-# Core dependencies
-ruff>=0.12.2
-opperai>=0.31.4
-
-# Standard library modules used:
-# - typing (built-in since Python 3.5)

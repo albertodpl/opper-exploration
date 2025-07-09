@@ -1,10 +1,11 @@
 """Getting started example for Opper AI exploration"""
 
+import os
+
 from opperai import Opper
 
 # Our SDK supports Pydantic to provide structured output
 from pydantic import BaseModel
-import os
 
 
 # Define the output structure

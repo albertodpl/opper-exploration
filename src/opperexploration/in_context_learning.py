@@ -1,10 +1,10 @@
 """In-context learning module for Opper AI exploration"""
 
+import os
+from typing import List
+
 from opperai import Opper
 from pydantic import BaseModel, Field
-from typing import List
-import os
-
 
 # --------- Schemas --------- #
 

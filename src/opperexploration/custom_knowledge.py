@@ -1,10 +1,11 @@
 """Custom knowledge module for Opper AI exploration"""
 
+import json
+import os
+from typing import Literal
+
 from opperai import Opper
 from pydantic import BaseModel
-from typing import Literal
-import os
-import json
 
 
 class SupportTicket(BaseModel):

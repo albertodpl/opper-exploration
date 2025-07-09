@@ -1,9 +1,10 @@
 """Task completion module for Opper AI exploration"""
 
-from opperai import Opper
 import os
-from pydantic import BaseModel, Field
 from typing import List
+
+from opperai import Opper
+from pydantic import BaseModel, Field
 
 
 # Input schema with field descriptions
