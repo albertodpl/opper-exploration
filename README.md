@@ -62,6 +62,7 @@ source venv/bin/activate && source .env && python src/opperexploration/task_comp
 
 ### Advanced Features
 
+- **Tests and Evaluations** (`tests_and_evals.py`) - Testing AI functions with metrics and evaluations
 - **Tracing and Metrics** (`tracing_and_metrics.py`) - Multi-step workflow tracing
 - **In-Context Learning** (`in_context_learning.py`) - Using examples to improve model performance
 - **Custom Knowledge Base** (`custom_knowledge.py`) - Support ticket management system
@@ -93,6 +94,7 @@ source venv/bin/activate && ruff format src/
 src/opperexploration/
 ├── getting_started.py               # Room extraction example
 ├── task_completion.py               # Knowledge base query example
+├── tests_and_evals.py               # Testing and evaluation example
 ├── tracing_and_metrics.py          # Tracing and evaluation
 ├── in_context_learning.py          # Example-based learning
 ├── custom_knowledge.py             # Support ticket management

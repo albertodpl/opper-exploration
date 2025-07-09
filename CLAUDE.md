@@ -17,6 +17,9 @@ source ./venv/bin/activate && source .env && python src/opperexploration/getting
 
 # Run task_completion.py (knowledge base query example)
 source ./venv/bin/activate && source .env && python src/opperexploration/task_completion.py
+
+# Run tests_and_evals.py (testing and evaluation example)
+source ./venv/bin/activate && source .env && python src/opperexploration/tests_and_evals.py
 ```
 
 ### Testing
