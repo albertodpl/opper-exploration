@@ -1,6 +1,6 @@
 # Opper AI Exploration
 
-This repository contains examples and experiments using the Opper AI SDK, demonstrating various capabilities of the unified AI API for building model-independent, structured, and performant AI applications.
+This repository contains examples (taken form the Opper AI documentation) and experiments using the Opper AI SDK, demonstrating various capabilities of the unified AI API for building model-independent, structured, and performant AI applications.
 
 ## Overview
 
@@ -75,11 +75,54 @@ source .env && uv run src/opperexploration/task_completion.py
 
 ### Advanced Features
 
-- **Tests and Evaluations** (`tests_and_evals.py`) - Testing AI functions with metrics and evaluations
-- **Tracing and Metrics** (`tracing_and_metrics.py`) - Multi-step workflow tracing
-- **In-Context Learning** (`in_context_learning.py`) - Using examples to improve model performance
-- **Custom Knowledge Base** (`custom_knowledge.py`) - Support ticket management system
-- **Task Completion at Scale** (`task_completion_at_scale.py`) - Batch processing examples
+**Tests and Evaluations** (`tests_and_evals.py`)
+- Testing AI functions with metrics and evaluations
+- Demonstrates comprehensive evaluation workflows
+
+```bash
+source .env && uv run src/opperexploration/tests_and_evals.py
+```
+
+**Tracing and Metrics** (`tracing_and_metrics.py`)
+- Multi-step workflow tracing
+- Parent-child span relationships
+- Performance monitoring
+
+```bash
+source .env && uv run src/opperexploration/tracing_and_metrics.py
+```
+
+**In-Context Learning** (`in_context_learning.py`)
+- Using examples to improve model performance
+- Few-shot learning demonstrations
+
+```bash
+source .env && uv run src/opperexploration/in_context_learning.py
+```
+
+**Custom Knowledge Base** (`custom_knowledge.py`)
+- Support ticket management system
+- Knowledge indexing and retrieval workflows
+
+```bash
+source .env && uv run src/opperexploration/custom_knowledge.py
+```
+
+**Task Completion at Scale** (`task_completion_at_scale.py`)
+- Batch processing examples
+- Scalable AI operations
+
+```bash
+source .env && uv run src/opperexploration/task_completion_at_scale.py
+```
+
+**Comprehensive Parameter Usage** (`task_completion_all_params.py`)
+- Complete demonstration of all Opper SDK parameters
+- Advanced configuration examples
+
+```bash
+source .env && uv run src/opperexploration/task_completion_all_params.py
+```
 
 ## Key Concepts
 
@@ -105,14 +148,15 @@ uv run ruff format src/
 
 ```
 src/opperexploration/
-├── getting_started.py               # Room extraction example
+├── __init__.py                      # Package initialization
+├── getting_started.py               # Room extraction example (basic usage)
 ├── task_completion.py               # Knowledge base query example
-├── tests_and_evals.py               # Testing and evaluation example
-├── tracing_and_metrics.py          # Tracing and evaluation
-├── in_context_learning.py          # Example-based learning
-├── custom_knowledge.py             # Support ticket management
-├── task_completion_at_scale.py     # Batch processing
-└── task_completion_all_params.py   # Comprehensive parameter usage
+├── tests_and_evals.py               # Testing and evaluation with metrics
+├── tracing_and_metrics.py          # Multi-step workflow tracing
+├── in_context_learning.py          # Few-shot learning with examples
+├── custom_knowledge.py             # Support ticket management system
+├── task_completion_at_scale.py     # Batch processing and scaling
+└── task_completion_all_params.py   # Comprehensive SDK parameter usage
 ```
 
 ## Contributing

@@ -34,7 +34,10 @@ def main():
         print(f"Function '{function_name}' does not exist. Creating it...")
         function = opper.functions.create(
             name=function_name,
-            instructions="Analyze this person's data and provide insights about their profile. Include a summary, key insights, and recommendations.",
+            instructions=(
+                "Analyze this person's data and provide insights about their profile. "
+                "Include a summary, key insights, and recommendations."
+            ),
             input_schema=PersonAnalysisInput.model_json_schema(),
             output_schema=PersonAnalysisOutput.model_json_schema(),
             configuration={"invocation.few_shot.count": 2},

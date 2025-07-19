@@ -16,7 +16,9 @@ class RoomDatabaseEntry(BaseModel):
     beds: int = Field(description="Number of beds in the room")
     price_per_night: float = Field(description="Cost of the room per night in USD")
     amenities: List[str] = Field(
-        description="List of amenities available in the room, e.g., wifi, breakfast, parking"
+        description=(
+            "List of amenities available in the room, e.g., wifi, breakfast, parking"
+        )
     )
 
 
@@ -43,7 +45,10 @@ def setup_function(opper: Opper):
     try:
         function = opper.functions.create(
             name=function_name,
-            instructions="Given a room database entry, describe the room in a way that is easy to understand and use for a customer.",
+            instructions=(
+                "Given a room database entry, describe the room in a way that is "
+                "easy to understand and use for a customer."
+            ),
             input_schema=RoomDatabaseEntry.model_json_schema(),
             output_schema=RoomDescription.model_json_schema(),
             configuration={"invocation.few_shot.count": 3},
@@ -65,12 +70,14 @@ def add_examples(opper: Opper, dataset_id: str):
         dataset_entries = opper.datasets.list_entries(dataset_id=dataset_id)
         if len(dataset_entries.data) > 0:
             print(
-                f"Dataset {dataset_id} already has {len(dataset_entries.data)} entries. Skipping example addition."
+                f"Dataset {dataset_id} already has {len(dataset_entries.data)} "
+                f"entries. Skipping example addition."
             )
             return
     except Exception as e:
         print(
-            f"Could not check existing dataset entries: {e}. Proceeding with example addition."
+            f"Could not check existing dataset entries: {e}. "
+            f"Proceeding with example addition."
         )
 
     examples = [
@@ -84,9 +91,19 @@ def add_examples(opper: Opper, dataset_id: str):
                 amenities=["wifi", "room service", "minibar", "balcony"],
             ).model_dump(),
             "output": RoomDescription(
-                description="This room at Seaside Resort features an elegant 2-room oceanfront suite with a comfortable king bed and private balcony offering stunning ocean views. Premium amenities include complimentary WiFi, personalized room service, and a well-stocked minibar. Perfect for couples seeking a romantic getaway or honeymooners looking for luxury and privacy."
+                description=(
+                    "This room at Seaside Resort features an elegant 2-room "
+                    "oceanfront suite with a comfortable king bed and private "
+                    "balcony offering stunning ocean views. Premium amenities include "
+                    "complimentary WiFi, personalized room service, and a well-stocked "
+                    "minibar. Perfect for couples seeking a romantic getaway or "
+                    "honeymooners looking for luxury and privacy."
+                )
             ).model_dump(),
-            "comment": "Example of a luxury oceanview suite with emphasis on romantic atmosphere",
+            "comment": (
+                "Example of a luxury oceanview suite with emphasis on romantic "
+                "atmosphere"
+            ),
         },
         {
             "input": RoomDatabaseEntry(
@@ -98,9 +115,19 @@ def add_examples(opper: Opper, dataset_id: str):
                 amenities=["wifi", "fireplace", "kitchen", "ski storage", "parking"],
             ).model_dump(),
             "output": RoomDescription(
-                description="This room at Mountain Lodge features a spacious 3-room suite with 4 comfortable beds, a fully equipped kitchen, and a cozy fireplace. The breathtaking mountain views complement modern amenities like WiFi and convenient ski storage, with complimentary parking included. Ideal for families or groups of friends planning an active mountain getaway."
+                description=(
+                    "This room at Mountain Lodge features a spacious 3-room suite "
+                    "with 4 comfortable beds, a fully equipped kitchen, and a cozy "
+                    "fireplace. The breathtaking mountain views complement modern "
+                    "amenities like WiFi and convenient ski storage, with "
+                    "complimentary "
+                    "parking included. Ideal for families or groups of friends "
+                    "planning an active mountain getaway."
+                )
             ).model_dump(),
-            "comment": "Example of a family-friendly mountain suite with practical amenities",
+            "comment": (
+                "Example of a family-friendly mountain suite with practical amenities"
+            ),
         },
         {
             "input": RoomDatabaseEntry(
@@ -112,9 +139,18 @@ def add_examples(opper: Opper, dataset_id: str):
                 amenities=["wifi", "workspace", "coffee maker", "gym access"],
             ).model_dump(),
             "output": RoomDescription(
-                description="This room at Urban Boutique Hotel features a modern space with a comfortable queen bed, dedicated workspace, and spectacular city views. Amenities include complimentary high-speed WiFi, an in-room coffee maker, and access to our fitness center. Perfect for business travelers who need a productive and convenient city-center base."
+                description=(
+                    "This room at Urban Boutique Hotel features a modern space with a "
+                    "comfortable queen bed, dedicated workspace, and spectacular city "
+                    "views. Amenities include complimentary high-speed WiFi, an "
+                    "in-room coffee maker, and access to our fitness center. Perfect "
+                    "for business travelers who need a productive and convenient "
+                    "city-center base."
+                )
             ).model_dump(),
-            "comment": "Example of a business-oriented city room with focus of productivity",
+            "comment": (
+                "Example of a business-oriented city room with focus of productivity"
+            ),
         },
     ]
 

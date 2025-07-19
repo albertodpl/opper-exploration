@@ -23,12 +23,18 @@ def main():
     completion = opper.call(
         name="extractRoom",
         instructions="Extract details about the room from the provided text",
-        input="The Grand Hotel offers a luxurious suite with 3 spacious rooms, each providing a breathtaking view of the ocean. The suite includes a king-sized bed, an en-suite bathroom, and a private balcony for an unforgettable stay.",
+        input=(
+            "The Grand Hotel offers a luxurious suite with 3 spacious rooms, each "
+            "providing a breathtaking view of the ocean. The suite includes a "
+            "king-sized bed, an en-suite bathroom, and a private balcony for an "
+            "unforgettable stay."
+        ),
         output_schema=RoomDescription,
     )
 
     print(completion.json_payload)
-    # {'room_count': 3, 'view': 'ocean', 'bed_size': 'king-sized', 'hotel_name': 'The Grand Hotel'}
+    # {'room_count': 3, 'view': 'ocean', 'bed_size': 'king-sized',
+    #  'hotel_name': 'The Grand Hotel'}
 
 
 if __name__ == "__main__":

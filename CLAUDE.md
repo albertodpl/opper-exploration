@@ -4,7 +4,7 @@ This file contains configuration and context for Claude Code to help with projec
 
 ## Project Overview
 
-<!-- Add a brief description of your project here -->
+This repository contains examples and experiments using the Opper AI SDK, demonstrating various capabilities of the unified AI API for building model-independent, structured, and performant AI applications. The project explores key Opper concepts through practical examples including structured data extraction, knowledge base operations, tracing and metrics, testing and evaluation workflows, and batch processing.
 
 ## Commands
 
@@ -12,14 +12,35 @@ This file contains configuration and context for Claude Code to help with projec
 
 ### Development
 ```bash
-# Run getting_started.py (room extraction example)
+# Basic Examples
+# Run getting_started.py (room extraction example - basic usage)
 source .env && uv run src/opperexploration/getting_started.py
 
 # Run task_completion.py (knowledge base query example)
 source .env && uv run src/opperexploration/task_completion.py
 
-# Run tests_and_evals.py (testing and evaluation example)
+# Advanced Examples
+# Run tests_and_evals.py (testing and evaluation with metrics)
 source .env && uv run src/opperexploration/tests_and_evals.py
+
+# Run tracing_and_metrics.py (multi-step workflow tracing)
+source .env && uv run src/opperexploration/tracing_and_metrics.py
+
+# Run in_context_learning.py (few-shot learning with examples)
+source .env && uv run src/opperexploration/in_context_learning.py
+
+# Run custom_knowledge.py (support ticket management system)
+source .env && uv run src/opperexploration/custom_knowledge.py
+
+# Run task_completion_at_scale.py (batch processing and scaling)
+source .env && uv run src/opperexploration/task_completion_at_scale.py
+
+# Run task_completion_all_params.py (comprehensive SDK parameter usage)
+source .env && uv run src/opperexploration/task_completion_all_params.py
+
+# Environment setup
+# Sync dependencies after git pull
+uv sync
 ```
 
 ### Testing
@@ -43,7 +64,28 @@ uv run ruff format src/
 
 ## Project Structure
 
-<!-- Describe the key directories and files in your project -->
+```
+src/opperexploration/
+├── __init__.py                      # Package initialization
+├── getting_started.py               # Room extraction example (basic usage)
+├── task_completion.py               # Knowledge base query example
+├── tests_and_evals.py               # Testing and evaluation with metrics
+├── tracing_and_metrics.py          # Multi-step workflow tracing
+├── in_context_learning.py          # Few-shot learning with examples
+├── custom_knowledge.py             # Support ticket management system
+├── task_completion_at_scale.py     # Batch processing and scaling
+└── task_completion_all_params.py   # Comprehensive SDK parameter usage
+```
+
+### Key Files Description
+- **getting_started.py**: Basic structured data extraction using Pydantic schemas
+- **task_completion.py**: Knowledge base creation, indexing, and semantic search
+- **tests_and_evals.py**: Comprehensive testing with metrics and evaluations
+- **tracing_and_metrics.py**: Parent-child span relationships and performance monitoring
+- **in_context_learning.py**: Few-shot learning techniques and example-based prompting
+- **custom_knowledge.py**: Real-world knowledge base application for support tickets
+- **task_completion_at_scale.py**: Batch processing and scalable AI operations
+- **task_completion_all_params.py**: Complete demonstration of all Opper SDK features
 
 ## Notes
 

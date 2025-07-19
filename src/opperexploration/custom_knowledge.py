@@ -32,8 +32,17 @@ def main():
 
     ticket = SupportTicket(
         ticket_id="123",
-        issue_description="I'm having trouble accessing my account. Whenever I try to log in, I receive an error message stating that my credentials are incorrect. I have tried resetting my password multiple times, but the issue persists. Please assist in resolving this matter as soon as possible.",
-        issue_resolution="The issue was resolved by verifying the user's identity and resetting the account credentials from the backend. The user was able to log in successfully after the credentials were reset.",
+        issue_description=(
+            "I'm having trouble accessing my account. Whenever I try to log in, "
+            "I receive an error message stating that my credentials are incorrect. "
+            "I have tried resetting my password multiple times, but the issue "
+            "persists. Please assist in resolving this matter as soon as possible."
+        ),
+        issue_resolution=(
+            "The issue was resolved by verifying the user's identity and resetting "
+            "the account credentials from the backend. The user was able to log in "
+            "successfully after the credentials were reset."
+        ),
         status="resolved",
     )
 
@@ -64,7 +73,10 @@ def main():
 
     completion = opper.call(
         name="suggest_resolution",
-        instructions="Given a user question and a list of potentially relevant past tickets, provide a suggestion for a resolution to the support agent",
+        instructions=(
+            "Given a user question and a list of potentially relevant past tickets, "
+            "provide a suggestion for a resolution to the support agent"
+        ),
         input={"past_tickets": filtered_tickets, "user_issue": "Can't login"},
         output_schema=SuggestResolution,
     )

@@ -21,9 +21,15 @@ def test_room_extraction():
     opper = Opper(http_bearer=os.getenv("OPPER_API_KEY"))
 
     # Test case 1: Basic room extraction
-    test_input = "The Grand Hotel offers a luxurious suite with 3 spacious rooms, each providing a breathtaking view of the ocean. The suite includes a king-sized bed, an en-suite bathroom, and a private balcony for an unforgettable stay."
+    test_input = (
+        "The Grand Hotel offers a luxurious suite with 3 spacious rooms, each "
+        "providing a breathtaking view of the ocean. The suite includes a "
+        "king-sized bed, an en-suite bathroom, and a private balcony for an "
+        "unforgettable stay."
+    )
 
-    # Assumes that the function 'extractRoom' is already defined and available in the Opper AI environment
+    # Assumes that the function 'extractRoom' is already defined and available
+    # in the Opper AI environment
     completion = opper.call(
         name="extractRoom",
         instructions="Extract details about the room from the provided text",
@@ -116,7 +122,10 @@ def test_multiple_scenarios():
     test_cases = [
         {
             "name": "Luxury suite",
-            "input": "The Ritz Carlton presidential suite features 5 rooms with stunning mountain views and a California king bed.",
+            "input": (
+                "The Ritz Carlton presidential suite features 5 rooms with stunning "
+                "mountain views and a California king bed."
+            ),
             "expected_hotel": "The Ritz Carlton",
         },
         {
@@ -126,7 +135,10 @@ def test_multiple_scenarios():
         },
         {
             "name": "Boutique hotel",
-            "input": "The Artisan Hotel offers a cozy single room with garden view and queen bed.",
+            "input": (
+                "The Artisan Hotel offers a cozy single room with garden view and "
+                "queen bed."
+            ),
             "expected_hotel": "The Artisan Hotel",
         },
     ]

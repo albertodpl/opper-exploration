@@ -17,7 +17,10 @@ class KBQueryInput(BaseModel):
 class KBQueryOutput(BaseModel):
     thoughts: str = Field(description="Elaborate step-by-step reasoning")
     answer: str = Field(
-        description="Concise answer to the question starting with 'The answer to the question is '",
+        description=(
+            "Concise answer to the question starting with "
+            "'The answer to the question is '"
+        ),
         pattern=r"^The answer to the question is [A-Za-z0-9\s ]+$",
     )
 
@@ -36,7 +39,9 @@ def main():
         print(f"Function '{function_name}' does not exist. Creating it...")
         function = opper.functions.create(
             name=function_name,
-            instructions="Given the list of bullet-point facts, then answer the question.",
+            instructions=(
+                "Given the list of bullet-point facts, then answer the question."
+            ),
             input_schema=KBQueryInput.model_json_schema(),
             output_schema=KBQueryOutput.model_json_schema(),
             configuration={"invocation.few_shot.count": 3},
